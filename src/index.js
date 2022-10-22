@@ -13,10 +13,10 @@ const refs = {
   list: document.querySelector('.country-list'),
 };
 
-refs.input.addEventListener('input', debounce(changeInput, DEBOUNCE_DELAY));
+refs.input.addEventListener('input', debounce(changeSearch, DEBOUNCE_DELAY));
 
-function changeInput(evt) {
-  removeSearch();
+function changeSearch(evt) {
+  reloadSearch();
   if (!evt.target.value.trim()) {
     return;
   }
@@ -39,7 +39,7 @@ function createSearch(data) {
   }
 }
 
-function removeSearch() {
+function reloadSearch() {
   refs.list.innerHTML = '';
   refs.div.innerHTML = '';
 }
